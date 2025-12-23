@@ -11,6 +11,8 @@
 #   make pre-push      Run all checks before pushing to GitHub
 #   make build         Validate templates (preparation for deployment)
 #   make deploy        Deploy templates to device
+#   make deploy-splash Deploy custom suspend screen to device
+#   make deploy-all    Deploy both templates and splash screen
 #   make clean         Remove custom templates from device
 #
 # Variables:
@@ -84,6 +86,26 @@ deploy: ## Deploy templates to reMarkable device
 
 .PHONY: upload
 upload: deploy ## Alias for deploy
+
+.PHONY: deploy-splash
+deploy-splash: ## Deploy custom suspend screen to device
+	@echo "$(BLUE)Deploying suspend screen to $(DEVICE_USER)@$(DEVICE_IP)...$(NC)"
+	@if [ ! -f "$(SOURCES_DIR)/splash-screens/suspended.png" ]; then \
+		echo "$(YELLOW)Error: suspended.png not found in $(SOURCES_DIR)/splash-screens/$(NC)"; \
+		echo "$(YELLOW)Please create your suspend screen image first.$(NC)"; \
+		exit 1; \
+	fi
+	@echo "$(BLUE)→ Backing up original suspend screen...$(NC)"
+	@ssh $(DEVICE_USER)@$(DEVICE_IP) "cp /usr/share/remarkable/suspended.png /usr/share/remarkable/suspended.png.backup 2>/dev/null || true"
+	@echo "$(BLUE)→ Copying suspend screen to device...$(NC)"
+	@scp "$(SOURCES_DIR)/splash-screens/suspended.png" $(DEVICE_USER)@$(DEVICE_IP):/usr/share/remarkable/suspended.png
+	@echo "$(BLUE)→ Restarting xochitl service...$(NC)"
+	@ssh $(DEVICE_USER)@$(DEVICE_IP) "systemctl restart xochitl"
+	@echo "$(GREEN)✓ Suspend screen deployed successfully!$(NC)"
+	@echo "$(BLUE)→ Put device to sleep to see your custom screen$(NC)"
+
+.PHONY: deploy-all
+deploy-all: deploy deploy-splash ## Deploy both templates and splash screen
 
 .PHONY: clean
 clean: ## Remove custom templates from device and restore originals
