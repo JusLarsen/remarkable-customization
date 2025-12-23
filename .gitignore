@@ -1,0 +1,20 @@
+# Claude Code local settings
+.claude/settings.local.json
+
+# Backup files from device
+current-templates.json
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.bak

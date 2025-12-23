@@ -1,0 +1,119 @@
+{
+    "name": "Daily Tracker",
+    "author": "Custom",
+    "templateVersion": "1.0.0",
+    "formatVersion": 1,
+    "categories": ["Planners"],
+    "orientation": "landscape",
+    "constants": [
+        {"mobileMaxWidth": 1000},
+        {"mobileOffsetX": "160 - 95 + 12"},
+        {"offsetX": "templateWidth > mobileMaxWidth ? 0 : mobileOffsetX"}
+    ],
+    "items": [
+        {
+            "id": "top-divider",
+            "type": "path",
+            "strokeWidth": 3,
+            "data": [
+                "M", 0, 76, "L", "templateWidth", 76
+            ]
+        },
+        {
+            "id": "left-vertical-divider",
+            "type": "path",
+            "strokeWidth": 3,
+            "data": [
+                "M", 561.5, 78, "L", 561.5, "templateHeight"
+            ]
+        },
+        {
+            "id": "right-vertical-divider",
+            "type": "path",
+            "strokeWidth": 3,
+            "data": [
+                "M", 1306.5, 78, "L", 1306.5, "templateHeight"
+            ]
+        },
+        {
+            "id": "middle-horizontal-divider",
+            "type": "path",
+            "strokeWidth": 3,
+            "data": [
+                "M", 560, 437.5, "L", "templateWidth", 437.5
+            ]
+        },
+        {
+            "id": "highlight-label",
+            "type": "text",
+            "text": "Highlight",
+            "fontSize": 18,
+            "position": {
+                "x": 582,
+                "y": 110
+            }
+        },
+        {
+            "id": "habits-label",
+            "type": "text",
+            "text": "Habits",
+            "fontSize": 18,
+            "position": {
+                "x": 1322,
+                "y": 110
+            }
+        },
+        {
+            "id": "notes-label",
+            "type": "text",
+            "text": "Notes",
+            "fontSize": 18,
+            "position": {
+                "x": 594,
+                "y": 454
+            }
+        },
+        {
+            "id": "tasks-label",
+            "type": "text",
+            "text": "Tasks",
+            "fontSize": 18,
+            "position": {
+                "x": 1321,
+                "y": 460
+            }
+        },
+        {
+            "id": "date-label",
+            "type": "text",
+            "text": "Date:",
+            "fontSize": 18,
+            "position": {
+                "x": 1539,
+                "y": 55
+            }
+        },
+        {
+            "id": "group-left-lines",
+            "type": "group",
+            "boundingBox": {
+                "x": 0,
+                "y": 228.5,
+                "width": 560,
+                "height": 55.5
+            },
+            "repeat": {
+                "rows": "down"
+            },
+            "children": [
+                {
+                    "type": "path",
+                    "strokeWidth": 1,
+                    "data": [
+                        "M", 0, 0, "L", "parentWidth", 0
+                    ]
+                }
+            ]
+        }
+    ]
+}
