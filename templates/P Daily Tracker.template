@@ -5,39 +5,14 @@
     "formatVersion": 1,
     "categories": ["Planners"],
     "orientation": "portrait",
-    "constants": [
-        {"mobileMaxWidth": 1000},
-        {"mobileOffsetX": "160 - 95 + 12"},
-        {"offsetX": "templateWidth > mobileMaxWidth ? 0 : mobileOffsetX"}
-    ],
     "items": [
         {
             "id": "top-divider",
             "type": "path",
             "strokeWidth": 3,
             "data": [
-                "M", 0, 74.5, "L", "templateWidth", 74.5
+                "M", 0, 80.5, "L", 1404, 80.5
             ]
-        },
-        {
-            "id": "highlight-label",
-            "type": "text",
-            "text": "Highlight",
-            "fontSize": 18,
-            "position": {
-                "x": 16,
-                "y": 95
-            }
-        },
-        {
-            "id": "habits-label",
-            "type": "text",
-            "text": "Habits",
-            "fontSize": 18,
-            "position": {
-                "x": 823,
-                "y": 95
-            }
         },
         {
             "id": "date-label",
@@ -50,11 +25,31 @@
             }
         },
         {
+            "id": "highlight-label",
+            "type": "text",
+            "text": "Highlights",
+            "fontSize": 18,
+            "position": {
+                "x": 83,
+                "y": 111
+            }
+        },
+        {
+            "id": "habits-label",
+            "type": "text",
+            "text": "Habits",
+            "fontSize": 18,
+            "position": {
+                "x": 823,
+                "y": 111
+            }
+        },
+        {
             "id": "center-divider",
             "type": "path",
             "strokeWidth": 3,
             "data": [
-                "M", 804.5, 76, "L", 804.5, 1282
+                "M", 804.5, 81, "L", 804.5, 1282
             ]
         },
         {
@@ -62,7 +57,7 @@
             "type": "path",
             "strokeWidth": 3,
             "data": [
-                "M", 0, 470.5, "L", "templateWidth", 470.5
+                "M", 0, 470.5, "L", 1404, 470.5
             ]
         },
         {
@@ -71,8 +66,8 @@
             "text": "Notes",
             "fontSize": 18,
             "position": {
-                "x": 28,
-                "y": 494
+                "x": 83,
+                "y": 509
             }
         },
         {
@@ -82,7 +77,7 @@
             "fontSize": 18,
             "position": {
                 "x": 822,
-                "y": 494
+                "y": 506
             }
         },
         {
@@ -90,29 +85,87 @@
             "type": "path",
             "strokeWidth": 3,
             "data": [
-                "M", 0, 1282.5, "L", "templateWidth", 1282.5
+                "M", 0, 1282.5, "L", 1404, 1282.5
             ]
         },
         {
-            "id": "group-notes-lines",
-            "type": "group",
-            "boundingBox": {
-                "x": 0,
-                "y": 1338,
-                "width": "templateWidth",
-                "height": 54
-            },
-            "repeat": {
-                "rows": "down"
-            },
-            "children": [
-                {
-                    "type": "path",
-                    "strokeWidth": 1,
-                    "data": [
-                        "M", 0, 0, "L", "parentWidth", 0
-                    ]
-                }
+            "id": "ruling-line-1",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1338, "L", 1404, 1338
+            ]
+        },
+        {
+            "id": "ruling-line-2",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1392.5, "L", 1404, 1392.5
+            ]
+        },
+        {
+            "id": "ruling-line-3",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1446.5, "L", 1404, 1446.5
+            ]
+        },
+        {
+            "id": "ruling-line-4",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1500.5, "L", 1404, 1500.5
+            ]
+        },
+        {
+            "id": "ruling-line-5",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1554.5, "L", 1404, 1554.5
+            ]
+        },
+        {
+            "id": "ruling-line-6",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1608.5, "L", 1404, 1608.5
+            ]
+        },
+        {
+            "id": "ruling-line-7",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1662.5, "L", 1404, 1662.5
+            ]
+        },
+        {
+            "id": "ruling-line-8",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1716.5, "L", 1404, 1716.5
+            ]
+        },
+        {
+            "id": "ruling-line-9",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1770.5, "L", 1404, 1770.5
+            ]
+        },
+        {
+            "id": "ruling-line-10",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1824.5, "L", 1404, 1824.5
             ]
         }
     ]

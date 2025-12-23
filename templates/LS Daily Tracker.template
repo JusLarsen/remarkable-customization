@@ -5,83 +5,14 @@
     "formatVersion": 1,
     "categories": ["Planners"],
     "orientation": "landscape",
-    "constants": [
-        {"mobileMaxWidth": 1000},
-        {"mobileOffsetX": "160 - 95 + 12"},
-        {"offsetX": "templateWidth > mobileMaxWidth ? 0 : mobileOffsetX"}
-    ],
     "items": [
         {
             "id": "top-divider",
             "type": "path",
             "strokeWidth": 3,
             "data": [
-                "M", 0, 76, "L", "templateWidth", 76
+                "M", 0, 82, "L", 1872, 82
             ]
-        },
-        {
-            "id": "left-vertical-divider",
-            "type": "path",
-            "strokeWidth": 3,
-            "data": [
-                "M", 561.5, 78, "L", 561.5, "templateHeight"
-            ]
-        },
-        {
-            "id": "right-vertical-divider",
-            "type": "path",
-            "strokeWidth": 3,
-            "data": [
-                "M", 1306.5, 78, "L", 1306.5, "templateHeight"
-            ]
-        },
-        {
-            "id": "middle-horizontal-divider",
-            "type": "path",
-            "strokeWidth": 3,
-            "data": [
-                "M", 560, 437.5, "L", "templateWidth", 437.5
-            ]
-        },
-        {
-            "id": "highlight-label",
-            "type": "text",
-            "text": "Highlight",
-            "fontSize": 18,
-            "position": {
-                "x": 582,
-                "y": 110
-            }
-        },
-        {
-            "id": "habits-label",
-            "type": "text",
-            "text": "Habits",
-            "fontSize": 18,
-            "position": {
-                "x": 1322,
-                "y": 110
-            }
-        },
-        {
-            "id": "notes-label",
-            "type": "text",
-            "text": "Notes",
-            "fontSize": 18,
-            "position": {
-                "x": 594,
-                "y": 454
-            }
-        },
-        {
-            "id": "tasks-label",
-            "type": "text",
-            "text": "Tasks",
-            "fontSize": 18,
-            "position": {
-                "x": 1321,
-                "y": 460
-            }
         },
         {
             "id": "date-label",
@@ -94,25 +25,227 @@
             }
         },
         {
-            "id": "group-left-lines",
-            "type": "group",
-            "boundingBox": {
-                "x": 0,
-                "y": 228.5,
-                "width": 560,
-                "height": 55.5
-            },
-            "repeat": {
-                "rows": "down"
-            },
-            "children": [
-                {
-                    "type": "path",
-                    "strokeWidth": 1,
-                    "data": [
-                        "M", 0, 0, "L", "parentWidth", 0
-                    ]
-                }
+            "id": "highlight-label",
+            "type": "text",
+            "text": "Highlights",
+            "fontSize": 18,
+            "position": {
+                "x": 582,
+                "y": 116
+            }
+        },
+        {
+            "id": "habits-label",
+            "type": "text",
+            "text": "Habits",
+            "fontSize": 18,
+            "position": {
+                "x": 1322,
+                "y": 116
+            }
+        },
+        {
+            "id": "left-vertical-divider",
+            "type": "path",
+            "strokeWidth": 3,
+            "data": [
+                "M", 561.5, 81, "L", 561.5, 1497.02
+            ]
+        },
+        {
+            "id": "right-vertical-divider",
+            "type": "path",
+            "strokeWidth": 3,
+            "data": [
+                "M", 1305.5, 81.9995, "L", 1306, 1494.02
+            ]
+        },
+        {
+            "id": "middle-horizontal-divider",
+            "type": "path",
+            "strokeWidth": 3,
+            "data": [
+                "M", 560, 437.5, "L", 1872, 437.5
+            ]
+        },
+        {
+            "id": "notes-label",
+            "type": "text",
+            "text": "Notes",
+            "fontSize": 18,
+            "position": {
+                "x": 582,
+                "y": 469
+            }
+        },
+        {
+            "id": "tasks-label",
+            "type": "text",
+            "text": "Tasks",
+            "fontSize": 18,
+            "position": {
+                "x": 1321,
+                "y": 472
+            }
+        },
+        {
+            "id": "college-line-1",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 228.5, "L", 560, 228.5
+            ]
+        },
+        {
+            "id": "college-line-2",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 284.5, "L", 560, 284.5
+            ]
+        },
+        {
+            "id": "college-line-3",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 339.5, "L", 560, 339.5
+            ]
+        },
+        {
+            "id": "college-line-4",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 394.5, "L", 560, 394.5
+            ]
+        },
+        {
+            "id": "college-line-5",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 449.5, "L", 560, 449.5
+            ]
+        },
+        {
+            "id": "college-line-6",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 504.5, "L", 560, 504.5
+            ]
+        },
+        {
+            "id": "college-line-7",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 560.5, "L", 560, 560.5
+            ]
+        },
+        {
+            "id": "college-line-8",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 615.5, "L", 560, 615.5
+            ]
+        },
+        {
+            "id": "college-line-9",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 670.5, "L", 560, 670.5
+            ]
+        },
+        {
+            "id": "college-line-10",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 725.5, "L", 560, 725.5
+            ]
+        },
+        {
+            "id": "college-line-11",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 785.5, "L", 560, 785.5
+            ]
+        },
+        {
+            "id": "college-line-12",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 841.5, "L", 560, 841.5
+            ]
+        },
+        {
+            "id": "college-line-13",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 896.5, "L", 560, 896.5
+            ]
+        },
+        {
+            "id": "college-line-14",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 951.5, "L", 560, 951.5
+            ]
+        },
+        {
+            "id": "college-line-15",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1006.5, "L", 560, 1006.5
+            ]
+        },
+        {
+            "id": "college-line-16",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1061.5, "L", 560, 1061.5
+            ]
+        },
+        {
+            "id": "college-line-17",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1117.5, "L", 560, 1117.5
+            ]
+        },
+        {
+            "id": "college-line-18",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1172.5, "L", 560, 1172.5
+            ]
+        },
+        {
+            "id": "college-line-19",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1227.5, "L", 560, 1227.5
+            ]
+        },
+        {
+            "id": "college-line-20",
+            "type": "path",
+            "strokeWidth": 1,
+            "data": [
+                "M", 0, 1282.5, "L", 560, 1282.5
             ]
         }
     ]
