@@ -16,13 +16,13 @@
     {
       "name": "Daily Tracker (Portrait)",
       "filename": "P Daily Tracker",
-      "iconCode": "\ue9aa",
+      "iconCode": "\ue991",
       "categories": ["Planners"]
     },
     {
       "name": "Daily Tracker (Landscape)",
       "filename": "LS Daily Tracker",
-      "iconCode": "\ue9aa",
+      "iconCode": "\ue9ac",
       "landscape": true,
       "categories": ["Planners"]
     },

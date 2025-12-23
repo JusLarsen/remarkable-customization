@@ -1,28 +1,44 @@
 # reMarkable Template Customization
 
+[![Lint Templates](https://github.com/JusLarsen/remarkable-customization/actions/workflows/lint.yml/badge.svg)](https://github.com/JusLarsen/remarkable-customization/actions/workflows/lint.yml)
+
 Custom templates for reMarkable tablets, including Daily Tracker layouts in both portrait and landscape orientations.
+
+## Templates
+
+| Template | Preview | Full Resolution |
+|----------|---------|-----------------|
+| **Daily Tracker (Portrait)** | <a href="sources/P Daily Tracker.pdf"><img src="sources/previews/P Daily Tracker.png" width="200" alt="Portrait Daily Tracker Preview"></a> | [PDF](sources/P%20Daily%20Tracker.pdf) • [SVG](sources/P%20Daily%20Tracker.svg) |
+| **Daily Tracker (Landscape)** | <a href="sources/LS Daily Tracker.pdf"><img src="sources/previews/LS Daily Tracker.png" width="300" alt="Landscape Daily Tracker Preview"></a> | [PDF](sources/LS%20Daily%20Tracker.pdf) • [SVG](sources/LS%20Daily%20Tracker.svg) |
+
+**Features:**
+- **Highlights/Habits** - Top sections for daily priorities and habit tracking
+- **Notes/Tasks** - Organized spaces for free-form notes and task lists with checkboxes
+- **Date Field** - Positioned in top right corner
+- **Ruled Lines** - College-ruled section at bottom for additional notes
 
 ## Project Structure
 
 ```
 .
+├── .github/
+│   └── workflows/
+│       └── lint.yml    # GitHub Actions CI workflow
 ├── Makefile            # Build system for validation and deployment
+├── LICENSE             # MIT License
 ├── templates/          # Built template files (.template JSON format)
 │   ├── P Daily Tracker.template
 │   ├── LS Daily Tracker.template
 │   └── templates.json
 ├── sources/            # Source design files (SVG/PDF)
+│   ├── previews/       # Preview images for README
 │   ├── P Daily Tracker.svg
 │   ├── P Daily Tracker.pdf
 │   ├── LS Daily Tracker.svg
 │   └── LS Daily Tracker.pdf
-├── scripts/            # Validation and deployment tooling
-│   ├── validate-templates.py
-│   ├── deploy.sh
-│   └── README.md
-└── References/         # reMarkable built-in templates for reference
-    ├── Built In/
-    └── Template Mockups/
+└── scripts/            # Validation and deployment tooling
+    ├── validate-templates.py
+    └── deploy.sh
 ```
 
 ## Quick Start
@@ -285,9 +301,13 @@ The validation script checks for:
 ## Resources
 
 - [reMarkable Template Format Documentation](https://remarkable.guide/guide/software/templates.html)
-- Built-in template examples in `References/Built In/templates/`
-- Script documentation in `scripts/README.md`
+- [reMarkable Wiki](https://remarkablewiki.com/)
+- [reMarkable Community Forums](https://remarkable.com/community)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-Custom templates and tooling for personal use.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
