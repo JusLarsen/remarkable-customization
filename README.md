@@ -75,6 +75,8 @@ The project includes a Makefile for streamlined workflow:
 |---------|-------------|
 | `make` or `make help` | Show all available commands |
 | `make validate` | Validate all template files |
+| `make lint` | Run linting checks (alias for validate) |
+| `make pre-push` | Run all checks before pushing to GitHub |
 | `make build` | Validate templates (preparation for deployment) |
 | `make deploy` | Deploy templates to device (validates first) |
 | `make upload` | Alias for deploy |
@@ -88,6 +90,15 @@ The project includes a Makefile for streamlined workflow:
 
 **Examples:**
 ```bash
+# Validate templates before committing
+make lint
+
+# Check if working directory is clean
+make git-status
+
+# Run pre-push checks
+make pre-push
+
 # Deploy to default device
 make deploy
 
@@ -100,6 +111,21 @@ make status
 # Clean up custom templates
 make clean
 ```
+
+### Pre-Push Workflow
+
+Before pushing to GitHub, the `pre-push` target runs all quality checks:
+
+```bash
+make pre-push
+```
+
+This will:
+1. Validate all template files (JSON syntax, structure, coordinates)
+2. Check for uncommitted changes in the working directory
+3. Confirm you're ready to push
+
+If any check fails, the command exits with an error and you should fix the issues before pushing.
 
 ## Custom Templates
 

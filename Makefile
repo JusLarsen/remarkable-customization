@@ -7,6 +7,8 @@
 #   make               Show available commands (default)
 #   make help          Show available commands
 #   make validate      Validate all templates
+#   make lint          Run linting checks (alias for validate)
+#   make pre-push      Run all checks before pushing to GitHub
 #   make build         Validate templates (preparation for deployment)
 #   make deploy        Deploy templates to device
 #   make clean         Remove custom templates from device
@@ -150,3 +152,32 @@ check: validate ## Alias for validate
 
 .PHONY: test
 test: validate ## Alias for validate
+
+.PHONY: lint
+lint: validate ## Run linting checks (alias for validate)
+
+.PHONY: lint-ci
+lint-ci: ## Run linting in CI mode (non-interactive)
+	@echo "$(BLUE)Running CI linting checks...$(NC)"
+	@chmod +x $(VALIDATE_SCRIPT)
+	@uv run python $(VALIDATE_SCRIPT)
+
+.PHONY: pre-push
+pre-push: lint git-status ## Run all checks before pushing to GitHub
+	@echo ""
+	@echo "$(GREEN)✓ All pre-push checks passed$(NC)"
+	@echo "$(BLUE)Ready to push to GitHub!$(NC)"
+	@echo ""
+
+.PHONY: git-status
+git-status: ## Check git status (fails if uncommitted changes exist)
+	@echo "$(BLUE)Checking git status...$(NC)"
+	@if [ -n "$$(git status --porcelain)" ]; then \
+		echo "$(YELLOW)Warning: You have uncommitted changes:$(NC)"; \
+		git status --short; \
+		echo ""; \
+		echo "$(YELLOW)Consider committing these changes before pushing.$(NC)"; \
+		exit 1; \
+	else \
+		echo "$(GREEN)✓ Working directory is clean$(NC)"; \
+	fi

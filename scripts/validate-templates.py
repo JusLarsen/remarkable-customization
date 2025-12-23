@@ -203,8 +203,13 @@ def validate_coordinates(
     return errors
 
 
-def validate_templates_json(file_path: Path) -> List[ValidationError]:
-    """Validate templates.json file."""
+def validate_templates_json(file_path: Path, custom_only: bool = True) -> List[ValidationError]:
+    """Validate templates.json file.
+
+    Args:
+        file_path: Path to templates.json
+        custom_only: If True, only report warnings for custom templates (default: True)
+    """
     errors = []
 
     # Validate JSON syntax
@@ -230,10 +235,21 @@ def validate_templates_json(file_path: Path) -> List[ValidationError]:
         ))
         return errors
 
+    # Custom template prefixes to validate
+    custom_prefixes = ["P Daily Tracker", "LS Daily Tracker"]
+
     # Validate each template entry
     filenames_seen = {}
     for i, template in enumerate(data["templates"]):
-        # Check required fields
+        filename = template.get("filename", "")
+
+        # Check if this is a custom template
+        is_custom = any(filename.startswith(prefix) for prefix in custom_prefixes)
+
+        # Skip warnings for non-custom templates if custom_only is True
+        skip_warnings = custom_only and not is_custom
+
+        # Check required fields (always check for errors)
         for field in REQUIRED_JSON_FIELDS:
             if field not in template:
                 errors.append(ValidationError(
@@ -242,8 +258,7 @@ def validate_templates_json(file_path: Path) -> List[ValidationError]:
                     f"Entry {i}: Missing required field '{field}'"
                 ))
 
-        # Check filename doesn't have .svg extension
-        filename = template.get("filename", "")
+        # Check filename doesn't have .svg extension (always check)
         if filename.endswith(".svg"):
             errors.append(ValidationError(
                 "ERROR",
@@ -251,33 +266,35 @@ def validate_templates_json(file_path: Path) -> List[ValidationError]:
                 f"Entry {i}: Filename '{filename}' should not have .svg extension"
             ))
 
-        # Check for duplicate filenames
+        # Check for duplicate filenames (only warn for custom templates if custom_only)
         if filename in filenames_seen:
-            errors.append(ValidationError(
-                "WARNING",
-                str(file_path),
-                f"Entry {i}: Duplicate filename '{filename}' "
-                f"(also at entry {filenames_seen[filename]})"
-            ))
+            if not skip_warnings:
+                errors.append(ValidationError(
+                    "WARNING",
+                    str(file_path),
+                    f"Entry {i}: Duplicate filename '{filename}' "
+                    f"(also at entry {filenames_seen[filename]})"
+                ))
         else:
             filenames_seen[filename] = i
 
-        # Validate landscape flag matches LS prefix
-        is_landscape = template.get("landscape", False)
-        if filename.startswith("LS ") and not is_landscape:
-            errors.append(ValidationError(
-                "WARNING",
-                str(file_path),
-                f"Entry {i}: Filename '{filename}' has LS prefix but "
-                f"landscape flag is not true"
-            ))
-        elif filename.startswith("P ") and is_landscape:
-            errors.append(ValidationError(
-                "WARNING",
-                str(file_path),
-                f"Entry {i}: Filename '{filename}' has P prefix but "
-                f"landscape flag is true"
-            ))
+        # Validate landscape flag matches LS prefix (only warn for custom if custom_only)
+        if not skip_warnings:
+            is_landscape = template.get("landscape", False)
+            if filename.startswith("LS ") and not is_landscape:
+                errors.append(ValidationError(
+                    "WARNING",
+                    str(file_path),
+                    f"Entry {i}: Filename '{filename}' has LS prefix but "
+                    f"landscape flag is not true"
+                ))
+            elif filename.startswith("P ") and is_landscape:
+                errors.append(ValidationError(
+                    "WARNING",
+                    str(file_path),
+                    f"Entry {i}: Filename '{filename}' has P prefix but "
+                    f"landscape flag is true"
+                ))
 
     return errors
 
@@ -310,8 +327,8 @@ def main():
     # Validate templates.json
     templates_json = templates_dir / "templates.json"
     if templates_json.exists():
-        print("Validating templates.json...")
-        errors = validate_templates_json(templates_json)
+        print("Validating templates.json (custom templates only)...")
+        errors = validate_templates_json(templates_json, custom_only=True)
         all_errors.extend(errors)
         print()
     else:
